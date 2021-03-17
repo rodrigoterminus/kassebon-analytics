@@ -1,5 +1,5 @@
 import { Item, Parser } from '../../types'
-import { parseItem } from './item-types'
+import { parseItem, reduceItems } from './item-types'
 
 export default class ItemsParser implements Parser<Item[]> {
   parse(content: string): Item[] {
@@ -8,10 +8,6 @@ export default class ItemsParser implements Parser<Item[]> {
     )
 
     const { items } = match?.groups as { items: string }
-    return items.split('\n').map(this.parseLine)
-  }
-
-  private parseLine(content: string): Item {
-    return parseItem(content)
+    return items.split('\n').map(parseItem).reduce(reduceItems, [])
   }
 }

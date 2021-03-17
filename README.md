@@ -4,16 +4,19 @@ Reads your Kassebons to give you insights on your groceries habits
 
 ## Work in progress
 
+Parsing result of a Rewe Kassebon:
+
 ```javascript
 {
   items: [
     {
+      unit: 'kg',
+      type: 'product',
+      weight: '0,607',
       description: 'ENTRECOTE DRY',
       extra: ' B',
-      total: '27,25',
-      type: 'product'
+      total: '27,25'
     },
-    { unit: 'kg', value: '0,607', type: 'weight' },
     {
       description: 'RD-HACKFLEISCH',
       extra: ' B',
@@ -57,12 +60,14 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '1,39',
+      type: 'product',
+      unit: 'Stk',
+      quantity: '4',
       description: 'RFW BURRATA',
       extra: ' B',
-      total: '5,56',
-      type: 'product'
+      total: '5,56'
     },
-    { price: '1,39', type: 'quantity', unit: 'Stk', value: '4' },
     {
       description: 'PAN OLI',
       extra: ' B',
@@ -70,12 +75,14 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '0,59',
+      type: 'product',
+      unit: 'Stk',
+      quantity: '2',
       description: 'BUTTERSCHOKOBRO.',
       extra: ' B',
-      total: '1,18',
-      type: 'product'
+      total: '1,18'
     },
-    { price: '0,59', type: 'quantity', unit: 'Stk', value: '2' },
     {
       description: 'KRUSTENBROT',
       extra: ' B',
@@ -89,12 +96,14 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '1,59',
+      type: 'product',
+      unit: 'Stk',
+      quantity: '3',
       description: 'ORANGENSAFT M.F.',
       extra: ' A',
-      total: '4,77',
-      type: 'product'
+      total: '4,77'
     },
-    { price: '1,59', type: 'quantity', unit: 'Stk', value: '3' },
     {
       description: 'EAT HAPPY SUSHI           X01',
       extra: ' B *',
@@ -114,12 +123,14 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '1,99',
+      type: 'product',
+      unit: 'kg',
+      quantity: '0,688',
       description: 'BANANE CHIQUITA',
       extra: ' B',
-      total: '1,37',
-      type: 'product'
+      total: '1,37'
     },
-    { price: '1,99', type: 'quantity', unit: 'kg', value: '0,688' },
     {
       description: 'ZWIEB.GEMUESE',
       extra: ' B',
@@ -133,19 +144,23 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '3,99',
+      type: 'product',
+      unit: 'kg',
+      quantity: '0,916',
       description: 'BIO KUERBIS',
       extra: ' B',
-      total: '3,65',
-      type: 'product'
+      total: '3,65'
     },
-    { price: '3,99', type: 'quantity', unit: 'kg', value: '0,916' },
     {
+      price: '6,99',
+      type: 'product',
+      unit: 'kg',
+      quantity: '0,376',
       description: 'TOM. CHERRY BIO',
       extra: ' B',
-      total: '2,63',
-      type: 'product'
+      total: '2,63'
     },
-    { price: '6,99', type: 'quantity', unit: 'kg', value: '0,376' },
     {
       description: 'DULCITA CHERRYRI',
       extra: ' B',
@@ -153,12 +168,14 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '3,69',
+      type: 'product',
+      unit: 'kg',
+      quantity: '0,580',
       description: 'PAPRIKA GRUEN',
       extra: ' B',
-      total: '2,14',
-      type: 'product'
+      total: '2,14'
     },
-    { price: '3,69', type: 'quantity', unit: 'kg', value: '0,580' },
     {
       description: 'BIO MINIPILZE',
       extra: ' B',
@@ -220,12 +237,14 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '0,79',
+      type: 'product',
+      unit: 'Stk',
+      quantity: '2',
       description: 'NATURJOGH. 3,5%',
       extra: ' B',
-      total: '1,58',
-      type: 'product'
+      total: '1,58'
     },
-    { price: '0,79', type: 'quantity', unit: 'Stk', value: '2' },
     {
       description: 'GEBACKEN.MUESLI',
       extra: ' B',
@@ -270,20 +289,23 @@ Reads your Kassebons to give you insights on your groceries habits
       type: 'product'
     },
     {
+      price: '0,89',
+      type: 'product',
+      unit: 'Stk',
+      quantity: '2',
       description: 'LOSCHER CLUBMATE',
       extra: ' A',
-      total: '1,78',
-      type: 'product'
+      total: '1,78'
     },
-    { price: '0,89', type: 'quantity', unit: 'Stk', value: '2' },
     {
+      price: '0,15',
+      type: 'pfand',
+      unit: 'Stk',
+      quantity: '2',
       extra: 'A *',
       currency: 'EUR',
-      price: '0,15',
-      total: '0,30',
-      type: 'pfand'
+      total: '0,30'
     },
-    { price: '0,15', type: 'quantity', unit: 'Stk', value: '2' },
     {
       description: 'DOLCE GUSTO',
       extra: ' B',
