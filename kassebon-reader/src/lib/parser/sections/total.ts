@@ -3,9 +3,9 @@ import { Parser, Total } from '../types'
 export default class TotalParser implements Parser<Total> {
   parse(content: string): Total {
     const match = content.match(
-      /\s?-+\n.+(?<currency>[A-Z]{3})\s+(?<value>[\d,]+)\s?\n\s+=+/,
+      /SUMME\s+(?<currency>[A-Z]{3})\s+(?<value>[\d,]+)/,
     )
-    const { currency, value } = match?.groups as Total
+    const { currency, value } = (match?.groups as Total) || {}
 
     return {
       currency,

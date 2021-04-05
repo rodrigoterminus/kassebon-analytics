@@ -48,7 +48,9 @@ export interface Quantity extends Item {
   unit: ItemUnit
 }
 
-export interface Unknown extends Item {}
+export interface Unknown extends Item {
+  content: string
+}
 
 export interface Weight extends Item {
   value: number

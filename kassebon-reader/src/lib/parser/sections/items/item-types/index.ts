@@ -3,6 +3,7 @@ import EmptyParser from './empty'
 import PfandParser from './pfand'
 import ProductParser from './product'
 import QuantityParser from './quantity'
+import UnknownParser from './unknown'
 import WeightParser from './weight'
 
 const parsers = {
@@ -11,6 +12,7 @@ const parsers = {
   [ItemType.product]: ProductParser,
   [ItemType.quantity]: QuantityParser,
   [ItemType.weight]: WeightParser,
+  [ItemType.unknown]: UnknownParser,
 }
 
 function guessLineType(line: string): ItemType {
@@ -22,7 +24,7 @@ function guessLineType(line: string): ItemType {
     [ItemType.pfand]: /^\s?PFAND/i,
     [ItemType.product]: /^[\w\d].+\s(?:[\d,]+)/,
     [ItemType.quantity]: /^\s+[\w\d\s,]+\sx\s+(?:[\d,]+)/,
-    [ItemType.weight]: /\s+Handeingabe/,
+    [ItemType.weight]: /[\d,]+\s\w{2,}$/,
   }
   return (
     Object.keys(testers).find((type) => testers[type].test(line)) ||
