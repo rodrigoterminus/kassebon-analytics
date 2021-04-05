@@ -29,7 +29,8 @@ export interface Empty extends Item {}
 
 export interface Product extends Item {
   description: string
-  total: string
+  total: number
+  taxClass: string
   extra?: string
 }
 
@@ -37,6 +38,7 @@ export interface Pfand extends Item {
   currency: Currency
   price: number
   total: number
+  taxClass: string
   extra?: string
 }
 
