@@ -1,4 +1,4 @@
-import { Item, Parser } from '../../types'
+import { Item, ItemType, Parser } from '../../types'
 import { parseItem, reduceItems } from './item-types'
 
 export default class ItemsParser implements Parser<Item[]> {
@@ -8,6 +8,10 @@ export default class ItemsParser implements Parser<Item[]> {
     )
 
     const { items } = match?.groups as { items: string }
-    return items.split('\n').map(parseItem).reduce(reduceItems, [])
+    return items
+      .split('\n')
+      .map(parseItem)
+      .reduce(reduceItems, [])
+      .filter(({ type }) => type !== ItemType.empty)
   }
 }

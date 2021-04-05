@@ -1,3 +1,4 @@
+import DateParser from './sections/date'
 import ItemsParser from './sections/items'
 import NumberParser from './sections/number'
 import TotalParser from './sections/total'
@@ -9,6 +10,7 @@ const SECTION_PARSERS = {
   total: TotalParser,
   number: NumberParser,
   trace: TracerParser,
+  date: DateParser,
 }
 
 function parseContent(content): Kassebon {
