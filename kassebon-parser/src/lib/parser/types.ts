@@ -19,6 +19,9 @@ export enum ItemUnit {
 export interface Kassebon {
   items: Item[]
   total: Total
+  number: string
+  trace: number
+  date: Date
 }
 
 export interface Item {

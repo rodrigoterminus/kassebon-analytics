@@ -5,19 +5,18 @@ import { parseContent } from './lib/parser'
   const files = fs
     .readdirSync('.temp')
     .filter((filename) => !['.DS_Store'].includes(filename))
-  // .filter((filename) => filename === 'REWE-eBon 20-03-2021.pdf')
 
   for (let file of files) {
     try {
       const content = await readFile(`.temp/${file}`)
       const result = parseContent(content)
-      console.log(`✅ File ${file} parsed succesfully`)
-      console.log(`\t🛍  Items: `, result.items.length)
+      console.log(`✅ File "${file}" parsed succesfully`)
+      console.log(`\t🛍  Items:`, result.items.length)
       console.log(`\t💰 Total: ${result.total.value}`)
       console.log(`\t🗓  Date: `, result.date)
       console.log('\n')
     } catch (e) {
-      console.error(`❌ Fail to parse file ${file}\n`, e.stack)
+      console.error(`❌ Fail to parse file "${file}"\n`, e.stack)
     }
   }
 })()
