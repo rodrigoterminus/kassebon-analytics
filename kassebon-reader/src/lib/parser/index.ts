@@ -1,10 +1,14 @@
 import ItemsParser from './sections/items'
+import NumberParser from './sections/number'
 import TotalParser from './sections/total'
-import { Kassebon, Parser, Total, Item } from './types'
+import TracerParser from './sections/trace'
+import { Kassebon } from './types'
 
 const SECTION_PARSERS = {
   items: ItemsParser,
   total: TotalParser,
+  number: NumberParser,
+  trace: TracerParser,
 }
 
 function parseContent(content): Kassebon {
