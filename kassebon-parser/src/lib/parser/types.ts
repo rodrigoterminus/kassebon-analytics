@@ -39,7 +39,7 @@ export interface Product extends Item {
 
 export interface Pfand extends Item {
   currency: Currency
-  price: number
+  price: number | null
   total: number
   taxClass: string
   extra?: string

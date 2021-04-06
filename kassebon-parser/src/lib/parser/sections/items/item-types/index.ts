@@ -1,4 +1,4 @@
-import { Item, ItemType, Parser } from '../../../types'
+import { Item, ItemType, Parser, Quantity, Weight } from '../../../types'
 import EmptyParser from './empty'
 import PfandParser from './pfand'
 import ProductParser from './product'
@@ -26,18 +26,17 @@ function guessLineType(line: string): ItemType {
     [ItemType.quantity]: /^\s+[\w\d\s,]+\sx\s+(?:[\d,]+)/,
     [ItemType.weight]: /[\d,]+\s\w{2,}$/,
   }
-  return (
-    Object.keys(testers).find((type) => testers[type].test(line)) ||
-    ItemType.unknown
-  )
+  return (Object.keys(testers).find((type) => testers[type].test(line)) ||
+    ItemType.unknown) as ItemType
 }
 
 function reduceItems(items: Item[], item: Item): Item[] {
   const { type } = item
 
   if ([ItemType.quantity, ItemType.weight].includes(type)) {
+    const { value } = item as Quantity | Weight
     const product = items.pop()
-    delete Object.assign(item, { [type]: item.value }).value
+    delete Object.assign(item, { [type]: value }).value
 
     items.push({
       ...{ ...item },

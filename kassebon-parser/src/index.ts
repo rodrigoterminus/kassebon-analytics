@@ -12,7 +12,7 @@ import { parseContent } from './lib/parser'
       const result = parseContent(content)
       console.log(`✅ File "${file}" parsed succesfully`)
       console.log(`\t🛍  Items:`, result.items.length)
-      console.log(`\t💰 Total: ${result.total.value}`)
+      console.log(`\t💰 Total:`, result.total.value)
       console.log(`\t🗓  Date: `, result.date)
       console.log('\n')
     } catch (e) {
